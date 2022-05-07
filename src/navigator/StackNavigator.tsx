@@ -31,16 +31,16 @@ export const StackNavigator = () => {
             }}
         >
             <Stack.Screen name="pagina1" options={{
-                title: "pagina1"
+                title: 'pagina1'
             }} component={Pagina1Screen} />
             <Stack.Screen name="pagina2" options={{
-                title: "pagina2"
+                title: 'pagina2'
             }} component={Pagina2Screen} />
             <Stack.Screen name="pagina3" options={{
-                title: "pagina3"
+                title: 'pagina3'
             }} component={Pagina3Screen} />
             <Stack.Screen name="personaScreen" options={{
-                title: "persona"
+                title: 'persona'
             }} component={PersonaScreen} />
         </Stack.Navigator>
     );
