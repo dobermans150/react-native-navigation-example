@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Image, useWindowDimensions, View, TouchableOpacity, Text } from 'react-native';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView } from '@react-navigation/drawer';
 
-import { StackNavigator } from './StackNavigator';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { styles } from '../theme/appTheme';
+import { BottomTabsNavigation } from './BottomTabsNavigation';
 
 export type RootDrawerParams = {
-    StackNavigator: undefined;
+    BottomTabsNavigator: undefined;
     SettingsScreen: undefined;
 }
 
@@ -37,7 +37,7 @@ export const MenuLateral = () => {
             drawerContent={(props) => <MenuInterno {...props} />}
 
         >
-            <Drawer.Screen name="StackNavigator" options={{ title: 'Home' }} component={StackNavigator} />
+            <Drawer.Screen name="BottomTabsNavigator" options={{ title: 'Tabs' }} component={BottomTabsNavigation} />
             <Drawer.Screen name="SettingsScreen" options={{ title: 'Settings' }} component={SettingsScreen} />
         </Drawer.Navigator>
     );
@@ -47,6 +47,7 @@ export const MenuLateral = () => {
 const MenuInterno = ({ navigation }: DrawerContentComponentProps) => {
     return (
         <DrawerContentScrollView>
+
             {/* Parte del Avatar */}
             <View style={styles.avatarContainer}>
                 <Image
@@ -59,11 +60,12 @@ const MenuInterno = ({ navigation }: DrawerContentComponentProps) => {
 
             {/* Opciones de menu */}
             <View style={styles.menuContainer}>
+
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('StackNavigator')}
+                    onPress={() => navigation.navigate('BottomTabsNavigator')}
                     style={styles.menuBoton}
                 >
-                    <Text style={styles.menuTexto}>Navegacion</Text>
+                    <Text style={styles.menuTexto}>Tabs</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -73,6 +75,7 @@ const MenuInterno = ({ navigation }: DrawerContentComponentProps) => {
                     <Text style={styles.menuTexto}>Settings</Text>
                 </TouchableOpacity>
             </View>
+
         </DrawerContentScrollView>
     );
 };
