@@ -2,7 +2,9 @@
 import React, { useEffect } from 'react'
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { Button, Text, View, TouchableOpacity } from 'react-native';
-import { styles } from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons'
+
+import { colors, styles } from '../theme/appTheme';
 
 interface Props extends DrawerScreenProps<any, any> { }
 
@@ -15,10 +17,23 @@ export const Pagina1Screen = ({ navigation }: Props) => {
     useEffect(() => {
         navigation.setOptions({
             headerLeft: () => (
-                <Button
-                    title="Menu"
+                <TouchableOpacity
                     onPress={() => navigation.toggleDrawer()}
-                />
+                    style={{
+                        width: 40,
+                        height: 40,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginLeft: 10,
+                    }}
+                    activeOpacity={0.8}
+                >
+                    <View>
+                        <Text>
+                            <Icon name="menu-outline" color={colors.primary} size={35} />
+                        </Text>
+                    </View>
+                </TouchableOpacity>
             ),
         });
     }, []);
@@ -47,6 +62,7 @@ export const Pagina1Screen = ({ navigation }: Props) => {
                         nombre: 'Pedrusco',
                     })}
                 >
+                    <Icon name="body-outline" size={35} color="white" />
                     <Text style={styles.botonGrandeTexto}>Pedro</Text>
                 </TouchableOpacity>
 
@@ -57,6 +73,7 @@ export const Pagina1Screen = ({ navigation }: Props) => {
                         nombre: 'Mariana',
                     })}
                 >
+                    <Icon name="woman-outline" size={35} color="white" />
                     <Text style={styles.botonGrandeTexto}>Maria</Text>
                 </TouchableOpacity>
             </View>

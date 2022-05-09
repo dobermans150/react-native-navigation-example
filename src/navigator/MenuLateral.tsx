@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Image, useWindowDimensions, View, TouchableOpacity, Text } from 'react-native';
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView } from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { styles } from '../theme/appTheme';
@@ -63,16 +64,18 @@ const MenuInterno = ({ navigation }: DrawerContentComponentProps) => {
 
                 <TouchableOpacity
                     onPress={() => navigation.navigate('BottomTabsNavigator')}
-                    style={styles.menuBoton}
+                    style={{ ...styles.menuBoton, flexDirection: 'row', }}
                 >
-                    <Text style={styles.menuTexto}>Tabs</Text>
+                    <Icon name='compass-outline' size={23} />
+                    <Text style={styles.menuTexto}> Navegacion</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     onPress={() => navigation.navigate('SettingsScreen')}
-                    style={styles.menuBoton}
+                    style={{ ...styles.menuBoton, flexDirection: 'row' }}
                 >
-                    <Text style={styles.menuTexto}>Settings</Text>
+                    <Icon name='settings-outline' size={23} />
+                    <Text style={styles.menuTexto}> Settings</Text>
                 </TouchableOpacity>
             </View>
 

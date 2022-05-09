@@ -1,6 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import { ChatScreen } from '../screens/ChatScreen';
 import { ContactsScreen } from '../screens/ContactsScreen';
 import { AlbumsScreen } from '../screens/AlbumsScreen';
@@ -24,13 +26,13 @@ export const TopTabNavigator = () => {
                 let iconName: string = '';
                 switch (route.name) {
                     case 'ChatScreen':
-                        iconName = 'CH';
+                        iconName = 'chatbox-ellipses-outline';
                         break;
                     case 'ContactsScreen':
-                        iconName = 'CO';
+                        iconName = 'call-outline';
                         break;
                     case 'AlbumsScreen':
-                        iconName = 'AL';
+                        iconName = 'albums-outline';
                         break;
                 }
                 return {
@@ -44,14 +46,16 @@ export const TopTabNavigator = () => {
                         elevation: 0,
                     },
                     tabBarIcon: ({ color }) => (
-                        <Text style={{ color }}>{iconName}</Text>
+                        <Text style={{ color }}>
+                            <Icon name={iconName} color={color} size={20} />
+                        </Text>
                     )
                 };
             }}
         >
-            <Tab.Screen name="ChatScreen" component={ChatScreen} />
-            <Tab.Screen name="ContactsScreen" component={ContactsScreen} />
-            <Tab.Screen name="AlbumsScreen" component={AlbumsScreen} />
+            <Tab.Screen options={{ title: 'Chat' }} name="ChatScreen" component={ChatScreen} />
+            <Tab.Screen options={{ title: 'Contacts' }} name="ContactsScreen" component={ContactsScreen} />
+            <Tab.Screen options={{ title: 'Album' }} name="AlbumsScreen" component={AlbumsScreen} />
         </Tab.Navigator>
     );
 };

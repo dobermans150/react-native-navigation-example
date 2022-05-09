@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
+import Icon from "react-native-vector-icons/Ionicons";
 
 import { Tab1Screen } from '../screens/Tab1Screen';
 import { StackNavigator } from './StackNavigator';
@@ -34,17 +35,19 @@ const BottomTabsAndroid = () => {
                     let iconName: string = '';
                     switch (route.name) {
                         case 'Tab1Screen':
-                            iconName = 'T1';
+                            iconName = 'bookmark-outline';
                             break;
                         case 'Tab2Screen':
-                            iconName = 'T2';
+                            iconName = 'desktop-outline';
                             break;
                         case 'StackNavigator':
-                            iconName = 'ST';
+                            iconName = 'people-outline';
                             break;
                     }
                     return (
-                        <Text style={{ color }}>{iconName}</Text>
+                        <Text style={{ color }}>
+                            <Icon name={iconName} size={20} color={color} />
+                        </Text>
                     );
                 },
 
@@ -76,22 +79,24 @@ const BottomTabsIos = () => {
                 tabBarLabelStyle: {
                     fontSize: 15,
                 },
-                tabBarIcon: ({ color }) => {
+                tabBarIcon: ({ color, size }) => {
 
                     let iconName: string = '';
                     switch (route.name) {
                         case 'Tab1Screen':
-                            iconName = 'T1';
+                            iconName = 'bookmark-outline';
                             break;
                         case 'Tab2Screen':
-                            iconName = 'T2';
+                            iconName = 'desktop-outline';
                             break;
                         case 'StackNavigator':
-                            iconName = 'ST';
+                            iconName = 'people-outline';
                             break;
                     }
                     return (
-                        <Text style={{ color }}>{iconName}</Text>
+                        <Text style={{ color }}>
+                            <Icon name={iconName} size={size} color={color} />
+                        </Text>
                     );
                 },
 
