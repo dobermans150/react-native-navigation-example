@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { StackScreenProps } from '@react-navigation/stack';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Text, View } from 'react-native';
+import { AuthContext } from '../context/AuthContext';
 
 import { RootStackParams } from '../navigator/StackNavigator';
 import { styles } from '../theme/appTheme';
@@ -15,6 +17,7 @@ interface RouteParams {
 export const PersonaScreen = ({ navigation, route }: Props) => {
 
     const params = route.params;
+    const { changeUser, authState: { isLoggeedIn } } = useContext(AuthContext);
 
     useEffect(() => {
 
@@ -24,6 +27,9 @@ export const PersonaScreen = ({ navigation, route }: Props) => {
 
     }, []);
 
+    useEffect(() => {
+        isLoggeedIn && changeUser(params.nombre);
+    }, []);
 
 
     return (
