@@ -1,8 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import { Button, Text, View, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import { colors, styles } from '../theme/appTheme';
 
